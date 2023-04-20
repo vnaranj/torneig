@@ -1,0 +1,9 @@
+# Dockerfile-db
+FROM mysql:5.7
+
+ENV MYSQL_DATABASE mydatabase
+ENV MYSQL_ROOT_PASSWORD mypassword
+
+COPY ./sql-scripts/ /docker-entrypoint-initdb.d/
+
+

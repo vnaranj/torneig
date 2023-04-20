@@ -1,0 +1,2 @@
+# Dockerfile-phpmyadmin
+FROM phpmyadmin/phpmyadmin

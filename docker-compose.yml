@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile-client
+    ports:
+      - "80:80"
+    depends_on:
+      - php-server
+
+  php-server:
+    build:
+      context: .
+      dockerfile: Dockerfile-php
+    volumes:
+      - ./server:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile-db
+    environment:
+      MYSQL_ROOT_PASSWORD: mypassword
+      MYSQL_DATABASE: mydatabase
+    volumes:
+      - db-data:/var/lib/mysql
+      #- ./sql-scripts/:/docker-entrypoint-initdb.d/
+      #- ./my.cnf:/etc/mysql/conf.d
+
+  phpmyadmin:
+    build:
+      context: .
+      dockerfile: Dockerfile-phpmyadmin
+    environment:
+      PMA_HOST: db
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+volumes:
+  db-data:
