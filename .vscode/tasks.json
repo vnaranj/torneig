@@ -5,9 +5,9 @@
 		"label": "java: build",
 		"type":"shell",
 		"command": 
-		["javac",
+		["javac",  //https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html
 		  "-cp",
-		  "server-java/lib/jakarta.servlet-api-5.0.0.jar",
+		  "server-java/lib/jakarta.servlet-api-5.0.0.jar:server-java/lib/gson-2.10.1.jar:server-java/web/WEB-INF/classes:server-java/lib/mysql-connector-java-8.0.28.jar",
 		  "${file}",
 		  "-d",
 		  "server-java/web/WEB-INF/classes"

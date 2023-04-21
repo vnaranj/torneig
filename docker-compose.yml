@@ -26,6 +26,8 @@ services:
     ports:
       - "8585:8080"
     volumes:
+      - ./server-java/lib/mysql-connector-java-8.0.28.jar:/usr/local/tomcat/lib/mysql-connector-java-8.0.28.jar
+      - ./server-java/lib/gson-2.10.1.jar:/usr/local/tomcat/lib/gson-2.10.1.jar
       - ./server-java/lib/jakarta.servlet-api-5.0.0.jar:/usr/local/tomcat/lib/jakarta.servlet-api-5.0.0.jar
       - ./server-java/web/WEB-INF:/usr/local/tomcat/webapps/ROOT/WEB-INF
 

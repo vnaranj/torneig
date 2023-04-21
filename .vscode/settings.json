@@ -1,5 +1,8 @@
 {
-    "java.project.sourcePaths": ["src"],
+    "java.project.sourcePaths": [
+        "src",
+        "server-java/src"
+    ],
     //"java.project.resourcePaths": ["src/resources"],
     //"java.project.referencedLibraries": ["server-java/lib/**/*.jar"],
 
@@ -16,7 +19,12 @@
           ],
           "isAsync": true
         }
-      ]
+    ],
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "server-java/lib/gson-2.10.1.jar",
+        "server-java/lib/jakarta.servlet-api-5.0.0.jar"
+    ]
       
       
 }
