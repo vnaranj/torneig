@@ -1,24 +1,32 @@
-document.addEventListener('DOMContentLoaded', function () {
-    cargarResultados();
+const resultadosTable = document.getElementById("resultados");
+const refrescarBtn = document.getElementById("refrescar");
 
-    document.getElementById('refrescar').addEventListener('click', cargarResultados);
-});
-
-function cargarResultados() {
-    fetch('/api/mostrar_encuentros.php')
-        .then(response => response.json())
-        .then(data => {
-            let tablaResultados = document.getElementById('resultados').getElementsByTagName('tbody')[0];
-            tablaResultados.innerHTML = '';
-
-            data.forEach(encuentro => {
-                let fila = tablaResultados.insertRow();
-
-                fila.insertCell().innerText = encuentro.equipo1_nombre;
-                fila.insertCell().innerText = encuentro.equipo1_goles;
-                fila.insertCell().innerText = encuentro.equipo2_goles;
-                fila.insertCell().innerText = encuentro.equipo2_nombre;
-                fila.insertCell().innerText = encuentro.hora;
-            });
-        });
+function actualizarTabla(resultados) {
+  let tableHTML = "";
+  resultados.forEach((resultado) => {
+    const hora = new Date(resultado.fecha).toLocaleTimeString('es-ES', {hour: '2-digit', minute: '2-digit'});
+    tableHTML += `
+      <tr>
+        <td>${resultado.equipoLocal}</td>
+        <td>${resultado.golesLocal}</td>
+        <td>${resultado.golesVisitante}</td>
+        <td>${resultado.equipoVisitante}</td>
+        <td>${hora}</td>
+      </tr>
+    `;
+  });
+  resultadosTable.querySelector("tbody").innerHTML = tableHTML;
 }
+
+async function obtenerResultados() {
+  try {
+    const response = await fetch("http://localhost:8585/partidos");
+    const resultados = await response.json();
+    actualizarTabla(resultados);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+obtenerResultados();
+refrescarBtn.addEventListener("click", obtenerResultados);

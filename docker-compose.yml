@@ -7,17 +7,20 @@ services:
       dockerfile: Dockerfile-client
     ports:
       - "80:80"
-    depends_on:
-      - php-server
-
-  php-server:
-    build:
-      context: .
-      dockerfile: Dockerfile-php
     volumes:
-      - ./server:/var/www/html
+      - ./client:/usr/share/nginx/html
+
     depends_on:
-      - db
+      - tomcat
+
+  # php-server:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile-php
+  #   volumes:
+  #     - ./server:/var/www/html
+  #   depends_on:
+  #     - db
 
   tomcat:
     build:

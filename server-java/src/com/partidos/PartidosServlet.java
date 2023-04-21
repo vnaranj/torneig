@@ -35,6 +35,10 @@ public class PartidosServlet extends HttpServlet {
         Connection conn = null;
         Statement stmt = null;
         try {
+            response.setHeader("Access-Control-Allow-Origin", "*");
+            response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+            response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://db:3306/mydatabase";
             conn = DriverManager.getConnection(url, "root", "mypassword");
