@@ -1,0 +1,23 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+	  {
+		"label": "java: build",
+		"type":"shell",
+		"command": 
+		["javac",
+		  "-cp",
+		  "server-java/lib/jakarta.servlet-api-5.0.0.jar",
+		  "${file}",
+		  "-d",
+		  "server-java/web/WEB-INF/classes"
+		],
+		"group": {
+		  "kind": "build",
+		  "isDefault": true
+		},
+	  }
+	],
+	
+  }
+  

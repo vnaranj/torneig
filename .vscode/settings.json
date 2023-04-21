@@ -1,0 +1,25 @@
+{
+    "java.project.sourcePaths": ["src"],
+    //"java.project.resourcePaths": ["src/resources"],
+    //"java.project.referencedLibraries": ["server-java/lib/**/*.jar"],
+
+    "fileWatcher.commands": [
+        {
+          "match": "\\.java$",
+          "cmd": [
+            "javac",
+            "-cp",
+            "server-java/lib/javax.servlet-api-4.0.1.jar",
+            "${file}",
+            "-d",
+            "server-java/web/WEB-INF/classes"
+          ],
+          "isAsync": true
+        }
+      ]
+      
+      
+}
+  
+
+  

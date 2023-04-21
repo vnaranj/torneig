@@ -19,6 +19,16 @@ services:
     depends_on:
       - db
 
+  tomcat:
+    build:
+      context: .
+      dockerfile: Dockerfile-java
+    ports:
+      - "8585:8080"
+    volumes:
+      - ./server-java/lib/jakarta.servlet-api-5.0.0.jar:/usr/local/tomcat/lib/jakarta.servlet-api-5.0.0.jar
+      - ./server-java/web/WEB-INF:/usr/local/tomcat/webapps/ROOT/WEB-INF
+
   db:
     build:
       context: .
@@ -44,3 +54,5 @@ services:
 
 volumes:
   db-data:
+
+
