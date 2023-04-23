@@ -1,25 +1,26 @@
-#refrescar {
-    cursor: pointer;
+.resultado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    margin: 5px;
 }
 
-#refrescar:active {
-    /* Cambia el color de fondo cuando se pulsa el botón */
-    background-color: #4CAF50;
-    /* Agrega una transición para que el cambio de color sea gradual */
-    transition: background-color 0.3s ease !important;
+.ganador {
+    background-color: #28a745 !important;
 }
 
-.resultados-table {
-    display: table;
+.perdedor {
+    background-color: #dc3545 !important;
 }
 
-.resultados-row {
-    display: table-row;
-}
-
-.resultados-cell {
-    display: inline-block;
-    width: fit-content;
-    border: 1px solid black;
-
+.empate {
+    background-color: #dca235 !important;
 }
