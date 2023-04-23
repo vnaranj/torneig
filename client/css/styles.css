@@ -1,0 +1,25 @@
+#refrescar {
+    cursor: pointer;
+}
+
+#refrescar:active {
+    /* Cambia el color de fondo cuando se pulsa el botón */
+    background-color: #4CAF50;
+    /* Agrega una transición para que el cambio de color sea gradual */
+    transition: background-color 0.3s ease !important;
+}
+
+.resultados-table {
+    display: table;
+}
+
+.resultados-row {
+    display: table-row;
+}
+
+.resultados-cell {
+    display: inline-block;
+    width: fit-content;
+    border: 1px solid black;
+
+}
