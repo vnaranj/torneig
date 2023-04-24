@@ -1,3 +1,5 @@
+const backend='https://vnaranj-musical-waddle-7g77jjxw4qvcxx79-8585.preview.app.github.dev'
+
 //div para poder meter el html dinámico
 const resultadosDiv = document.getElementById("resultados");
 
@@ -12,7 +14,7 @@ function actualizarDiv(resultados) {
     const golesVisitante = parseInt(resultado.golesVisitante);
 
     divHTML += `
-    <div class="col-md-3 col-sm-12 mb-4">
+    <div class="col-mg-6 col-sm-12 lg-4">
     <div class="card mb-3">
       <div class="card-body">
         <div class="d-flex justify-content-around align-items-center">
@@ -20,10 +22,10 @@ function actualizarDiv(resultados) {
             <p class="card-title text-center">${resultado.equipoLocal}</p>
           </div>
           <div class="resultado d-flex flex-column align-items-center ${golesLocal > golesVisitante ? 'ganador' : golesLocal < golesVisitante ? 'perdedor' : 'empate'}">
-            <div class="goles ${golesLocal > golesVisitante ? 'ganador' : golesLocal < golesVisitante ? 'perdedor' : 'empate'}">${golesLocal}</div>
+            ${golesLocal}
           </div>
           <div class="resultado d-flex flex-column align-items-center ${golesLocal < golesVisitante ? 'ganador' : golesLocal > golesVisitante ? 'perdedor' : 'empate'}">
-            <div class="goles ${golesLocal < golesVisitante ? 'ganador' : golesLocal > golesVisitante ? 'perdedor' : 'empate'}">${golesVisitante}</div>
+            ${golesVisitante}
           </div>
           <div class="equipo">
             <p class="card-title text-center">${resultado.equipoVisitante}</p>
@@ -41,7 +43,7 @@ function actualizarDiv(resultados) {
 
 async function obtenerResultados() {
   try {
-    const response = await fetch("http://localhost:8585/partidos");
+    const response = await fetch(backend+"/partidos");
     const resultados = await response.json();
     actualizarDiv(resultados);
   } catch (error) {

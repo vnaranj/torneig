@@ -37,7 +37,7 @@ public class PartidosServlet extends HttpServlet {
         try {
             response.setHeader("Access-Control-Allow-Origin", "*");
             response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-            response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+            response.setheader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");              
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://db:3306/mydatabase";
