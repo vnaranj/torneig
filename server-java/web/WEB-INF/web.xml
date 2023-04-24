@@ -4,16 +4,16 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    <servlet>
-        <servlet-name>HelloWorldServlet</servlet-name>
-        <servlet-class>com.example.HelloWorldServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>HelloWorldServlet</servlet-name>
-        <url-pattern>/hello</url-pattern>
-    </servlet-mapping>
+  <servlet>
+      <servlet-name>HelloWorldServlet</servlet-name>
+      <servlet-class>com.example.HelloWorldServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>HelloWorldServlet</servlet-name>
+      <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
 
-    <servlet>
+  <servlet>
     <servlet-name>PartidosServlet</servlet-name>
     <servlet-class>com.partidos.PartidosServlet</servlet-class>
   </servlet>
@@ -21,4 +21,36 @@
     <servlet-name>PartidosServlet</servlet-name>
     <url-pattern>/partidos</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ResultadoServlet</servlet-name>
+    <servlet-class>com.partidos.ResultadoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResultadoServlet</servlet-name>
+    <url-pattern>/resultado</url-pattern>
+  </servlet-mapping>
+
+  <filter>
+    <filter-name>CorsFilter</filter-name>
+    <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+    <init-param>
+      <param-name>cors.allowed.origins</param-name>
+      <param-value>*</param-value>
+    </init-param>
+    <init-param>
+      <param-name>cors.allowed.methods</param-name>
+      <param-value>GET,POST,PUT,DELETE,OPTIONS</param-value>
+    </init-param>
+    <init-param>
+      <param-name>cors.allowed.headers</param-name>
+      <param-value>Origin, X-Requested-With, Content-Type, Accept</param-value>
+    </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>CorsFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
 </web-app>

@@ -13,8 +13,7 @@ public class Partido {
     private int golesVisitante;
 
     public Partido(String id, String idLocal, String idVisitante, String equipoLocal, String equipoVisitante,
-            Date fecha, int golesLocal,
-            int golesVisitante) {
+            Date fecha, int golesLocal, int golesVisitante) {
         this.id = id;
         this.idLocal = idLocal;
         this.idVisitante = idVisitante;
@@ -23,12 +22,6 @@ public class Partido {
         this.fecha = fecha;
         this.golesLocal = golesLocal;
         this.golesVisitante = golesVisitante;
-    }
-
-    public Partido(String id, String idLocal, String idVisitante, String equipoLocal, String equipoVisitante,
-            Date fecha) {
-
-        this(id, idLocal, idVisitante, equipoLocal, equipoVisitante, fecha, 0, 0);
     }
 
     // getters y setters

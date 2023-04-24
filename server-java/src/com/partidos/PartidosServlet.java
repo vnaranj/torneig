@@ -35,9 +35,9 @@ public class PartidosServlet extends HttpServlet {
         Connection conn = null;
         Statement stmt = null;
         try {
-            response.setHeader("Access-Control-Allow-Origin", "*");
-            response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-            response.setheader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");              
+            //response.setHeader("Access-Control-Allow-Origin", "*");
+            //response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+            //response.setheader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");              
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://db:3306/mydatabase";
@@ -61,9 +61,11 @@ public class PartidosServlet extends HttpServlet {
                 String equipo2Id = rs.getString("equipo2_id");
                 String equipo1 = rs.getString("equipo1_nombre");
                 String equipo2 = rs.getString("equipo2_nombre");
+                int goles1 = rs.getInt("equipo1_goles");
+                int goles2 = rs.getInt("equipo2_goles");
                 String fecha = rs.getString("hora");
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                Partido partido = new Partido(id, equipo1Id, equipo2Id, equipo1, equipo2, sdf.parse(fecha));
+                Partido partido = new Partido(id, equipo1Id, equipo2Id, equipo1, equipo2, sdf.parse(fecha),goles1,goles2);
                 partidos.add(partido);
             }
 
