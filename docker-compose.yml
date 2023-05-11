@@ -13,15 +13,6 @@ services:
     depends_on:
       - tomcat
 
-  # php-server:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile-php
-  #   volumes:
-  #     - ./server:/var/www/html
-  #   depends_on:
-  #     - db
-
   tomcat:
     build:
       context: .
