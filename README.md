@@ -6,3 +6,4 @@ Per desenvolupar, fer servir el visual studio code i Instal·lar extensions de *
 Per que funcioni, s'ha de canviar la primera línia dels fitxers mainx.js amb la url del servidor de la api java, i  aquest port públic
 ----
 #prova
+hola
