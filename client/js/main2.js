@@ -20,10 +20,10 @@ function actualizarDiv(resultados) {
             <p class="card-title text-center">${resultado.equipoLocal}</p>
           </div>
           <div class="resultado d-flex flex-column align-items-center ${golesLocal > golesVisitante ? 'ganador' : golesLocal < golesVisitante ? 'perdedor' : 'empate'}">
-            <input type="text" class="form-control goles" value="0" placeholder="${golesLocal}">
+            <input type="text" class="form-control goles" value="0">
           </div>
           <div class="resultado d-flex flex-column align-items-center ${golesLocal < golesVisitante ? 'ganador' : golesLocal > golesVisitante ? 'perdedor' : 'empate'}">
-            <input type="text" class="form-control goles" value="0" placeholder="${golesVisitante}">
+            <input type="text" class="form-control goles" value="0">
           </div>
           <div class="equipo">
             <p class="card-title text-center">${resultado.equipoVisitante}</p>
