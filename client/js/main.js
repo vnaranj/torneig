@@ -53,3 +53,4 @@ async function obtenerResultados() {
 
 obtenerResultados();
 refrescarBtn.addEventListener("click", obtenerResultados);
+
