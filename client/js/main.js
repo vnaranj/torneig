@@ -1,4 +1,4 @@
-const backend='https://vnaranj-musical-waddle-7g77jjxw4qvcxx79-8585.preview.app.github.dev'
+const backend='https://yklymko21-glorious-umbrella-qjgjq94gvqwhx9gx-80.preview.app.github.dev';
 
 //div para poder meter el html dinámico
 const resultadosDiv = document.getElementById("resultados");
@@ -19,7 +19,7 @@ function actualizarDiv(resultados) {
       <div class="card-body">
         <div class="d-flex justify-content-around align-items-center">
           <div class="equipo">
-            <p class="card-title text-center">${resultado.equipoLocal}</p>
+            <p class="card-title text-center">${resultado.equipoLocal} - ${resultado.jugado}</p>
           </div>
           <div class="resultado d-flex flex-column align-items-center ${golesLocal > golesVisitante ? 'ganador' : golesLocal < golesVisitante ? 'perdedor' : 'empate'}">
             ${golesLocal}

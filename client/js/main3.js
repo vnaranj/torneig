@@ -1,4 +1,4 @@
-const backend = "https://vnaranj-musical-waddle-7g77jjxw4qvcxx79-8585.preview.app.github.dev";
+const backend='https://yklymko21-glorious-umbrella-qjgjq94gvqwhx9gx-8585.preview.app.github.dev';
 
 //div para poder meter el html dinámico
 const resultadosDiv = document.getElementById("resultados");
@@ -13,6 +13,7 @@ async function obtenerPuntuaciones() {
     const partidos = await response.json();
     const equipos = {};
     partidos.forEach(partido => {
+
       const equipoLocal = partido.equipoLocal;
       const equipoVisitante = partido.equipoVisitante;
       const golesLocal = parseInt(partido.golesLocal);
@@ -23,14 +24,16 @@ async function obtenerPuntuaciones() {
       if (!equipos[equipoVisitante]) {
         equipos[equipoVisitante] = { nombre: equipoVisitante, puntuacion: 0 };
       }
-      if (golesLocal > golesVisitante) {
-        equipos[equipoLocal].puntuacion += 3;
-      } else if (golesLocal < golesVisitante) {
-        equipos[equipoVisitante].puntuacion += 3;
-      } else {
-        equipos[equipoLocal].puntuacion += 1;
-        equipos[equipoVisitante].puntuacion += 1;
-      }
+      if(partido.jugado == true) {
+        if (golesLocal > golesVisitante) {
+          equipos[equipoLocal].puntuacion += 3;
+        } else if (golesLocal < golesVisitante) {
+          equipos[equipoVisitante].puntuacion += 3;
+        } else {
+          equipos[equipoLocal].puntuacion += 1;
+          equipos[equipoVisitante].puntuacion += 1;
+        }
+      } 
     });
     const listaEquipos = Object.values(equipos).sort((a, b) => b.puntuacion - a.puntuacion);
     listaEquipos.forEach((equipo, index) => {

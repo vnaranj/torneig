@@ -11,9 +11,10 @@ public class Partido {
     private Date fecha;
     private int golesLocal;
     private int golesVisitante;
+    private boolean jugado;
 
     public Partido(String id, String idLocal, String idVisitante, String equipoLocal, String equipoVisitante,
-            Date fecha, int golesLocal, int golesVisitante) {
+            Date fecha, int golesLocal, int golesVisitante, boolean jugado) {
         this.id = id;
         this.idLocal = idLocal;
         this.idVisitante = idVisitante;
@@ -22,6 +23,7 @@ public class Partido {
         this.fecha = fecha;
         this.golesLocal = golesLocal;
         this.golesVisitante = golesVisitante;
+        this.jugado = jugado;
     }
 
     // getters y setters
@@ -88,5 +90,12 @@ public class Partido {
 
     public void setGolesVisitante(int golesVisitante) {
         this.golesVisitante = golesVisitante;
+    }
+    public boolean getJugado() {
+        return jugado;
+    }
+
+    public void setJugado(boolean jugado) {
+        this.jugado = jugado;
     }
 }

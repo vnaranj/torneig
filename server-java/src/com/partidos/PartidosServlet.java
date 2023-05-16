@@ -49,7 +49,7 @@ public class PartidosServlet extends HttpServlet {
             String sql = "SELECT  p.id, p.hora, \n" +
                     "       eq1.id AS equipo1_id, eq1.nombre AS equipo1_nombre, \n" +
                     "       eq2.id AS equipo2_id, eq2.nombre AS equipo2_nombre, \n" +
-                    "       p.equipo1_goles, p.equipo2_goles \n" +
+                    "       p.equipo1_goles, p.equipo2_goles, p.jugado \n" +
                     "   FROM partidos p \n" +
                     "   JOIN equipos eq1 ON p.equipo1_id = eq1.id \n" +
                     "   JOIN equipos eq2 ON p.equipo2_id = eq2.id;";
@@ -64,8 +64,9 @@ public class PartidosServlet extends HttpServlet {
                 int goles1 = rs.getInt("equipo1_goles");
                 int goles2 = rs.getInt("equipo2_goles");
                 String fecha = rs.getString("hora");
+                boolean jugado = rs.getBoolean("jugado");
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                Partido partido = new Partido(id, equipo1Id, equipo2Id, equipo1, equipo2, sdf.parse(fecha),goles1,goles2);
+                Partido partido = new Partido(id, equipo1Id, equipo2Id, equipo1, equipo2, sdf.parse(fecha),goles1,goles2, jugado);
                 partidos.add(partido);
             }
 
