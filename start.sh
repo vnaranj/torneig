@@ -1,7 +1,9 @@
 #!/bin/bash
 
-#Si se recibe el parámetro 'full', se hace un reinicio completo
-#Si no, sólo se hace down y up
+#ANTES DE INICIAR TENER EN CUENTA PASAR EL PARAMETRO CONCRETO:
+    #En local pasar el parametro local (.\start.sh local)
+    #Si se recibe el parámetro 'full', se hace un reinicio completo
+    #Si no, sólo se hace down y up
 backend_msg="*******"
 
 # Configurar la url dependiendo del entorno
