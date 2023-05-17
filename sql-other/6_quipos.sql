@@ -1,4 +1,4 @@
--- Script de arranque para 4 equipos (ida y vuelta);
+-- Script de arranque para 6 equipos (Sólo ida);
 
 USE mydatabase;
 
@@ -12,7 +12,7 @@ CREATE TABLE equipos (
     nombre VARCHAR(255) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO equipos (nombre) VALUES ('ASIX 1'), ('ASIX 2'), ('DAW 1'), ('Profes');
+INSERT INTO equipos (nombre) VALUES ('ASIX 1'), ('ASIX 2'), ('DAW 1'), ('Profes'), ('Extra'), ('Extra2');
 
 -- Tabla de partidos
 CREATE TABLE partidos (
@@ -36,59 +36,55 @@ SET @start_time = TIME('17:00:00');
 SET @interval_base = 20;
 SET @time_interval = 0;
 
--- Partidos de ida
-
 -- ASIX 2 vs DAW 1
 INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
 VALUES (2, 3, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
 
--- Profes vs ASIX 1
+-- Extra vs Profes
 SET @time_interval = @time_interval + @interval_base;
 INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
-VALUES (4, 1, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
+VALUES (5, 4, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
+
+-- Extra2 vs ASIX 1
+SET @time_interval = @time_interval + @interval_base;
+INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
+VALUES (6, 1, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
+
+-- DAW 1 vs Extra
+SET @time_interval = @time_interval + @interval_base;
+INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
+VALUES (3, 5, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
 
 -- Profes vs ASIX 2
 SET @time_interval = @time_interval + @interval_base;
 INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
 VALUES (4, 2, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
 
+
+-- Extra2 vs Profes
+SET @time_interval = @time_interval + @interval_base;
+INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
+VALUES (6, 4, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
+
 -- ASIX 1 vs DAW 1
 SET @time_interval = @time_interval + @interval_base;
 INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
 VALUES (1, 3, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
 
+-- ASIX 2 vs Extra2
+SET @time_interval = @time_interval + @interval_base;
+INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
+VALUES (2, 6, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
 
 -- DAW 1 vs Profes
 SET @time_interval = @time_interval + @interval_base;
 INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
 VALUES (3, 4, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
 
--- ASIX 2 vs ASIX 1
+-- Extra vs ASIX 1
 SET @time_interval = @time_interval + @interval_base;
 INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
-VALUES (2, 1, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
-
-
--- Partidos de vuelta. *********************
--- DAW 1 vs ASIX 1
-SET @time_interval = @time_interval + @interval_base;
-INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
-VALUES (3, 1, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
-
--- ASIX 2 vs Profes 
-SET @time_interval = @time_interval + @interval_base;
-INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
-VALUES (2, 4, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
-
--- Profes  vs DAW 1
-SET @time_interval = @time_interval + @interval_base;
-INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
-VALUES (4, 3, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
-
--- ASIX 1 vs ASIX 2 
-SET @time_interval = @time_interval + @interval_base;
-INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
-VALUES (1, 2, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
+VALUES (5, 1, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
 
 
 -- ASIX 1 vs Profes
@@ -96,10 +92,23 @@ SET @time_interval = @time_interval + @interval_base;
 INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
 VALUES (1, 4, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
 
--- DAW 1 vs ASIX 2  
+-- Extra vs ASIX 2
 SET @time_interval = @time_interval + @interval_base;
 INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
-VALUES (3, 2, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
+VALUES (5, 2, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
+
+-- Extra2 vs DAW 1
+SET @time_interval = @time_interval + @interval_base;
+INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
+VALUES (6, 3, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
 
 
+-- Extra vs Extra2
+SET @time_interval = @time_interval + @interval_base;
+INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
+VALUES (5, 6, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
 
+-- ASIX 1 vs ASIX 2
+SET @time_interval = @time_interval + @interval_base;
+INSERT INTO partidos (equipo1_id, equipo2_id, hora) 
+VALUES (1, 2, TIMESTAMP(@start_date, ADDTIME(@start_time, SEC_TO_TIME(@time_interval * 60))));
