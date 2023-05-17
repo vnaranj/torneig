@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guineueta League</title>
+  <link rel="icon" href="img/cartas/logo pagina.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Estilos para el cuerpo de la pagina */
+    body {
+      background-image: url(img/cartas/fondo.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center center;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Estilos para el contenedor de la carta */
+    .carta {
+      padding: 30px;
+      width: 80%;
+      max-width: 500px;
+      margin: 0 auto;
+      border-radius: 10px;
+    }
+
+    /* Estilos para el titulo de la carta */
+    .carta h1 {
+      text-shadow: 10px 10px 16px rgb(255, 145, 0);
+      text-align: center;
+      color: white;
+      font-size: 36px;
+      font-family: Arial black;
+      margin-bottom: 20px;
+    }
+
+    /* Estilo href */
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    a:hover {
+      background-color: black;
+      color: white;
+    }
+
+    /* Estilos para la imagen */
+    .cuadro {
+      text-align: center;
+      margin-bottom: 20px;
+      perspective: 1000px;
+    }
+
+    .cuadro img {
+      max-width: 80%;
+      height: auto;
+      transition: transform 0.8s ease;
+      transform-style: preserve-3d;
+      animation: animate 1.5s linear infinite;
+    }
+
+    @keyframes animate {
+      0%{
+        transform: perspective(1000px) rotateY(0deg);
+      }
+      100%{
+        transform: perspective(1000px) rotateY(-360deg);
+      }
+    }
+
+    @keyframes half {
+      0%{
+        transform: perspective(1000px) rotateY(90deg);
+      }
+      100%{
+        transform: perspective(1000px) rotateY(0deg);
+      }
+    }
+
+    .cuadro .tarjeta-front {
+      z-index: 2;
+    }
+
+    .cuadro .tarjeta-back {
+      transform: rotateY(180deg);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+
+    /* Estilos para el boton */
+    .boton {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .boton button {
+      background-color: orange;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      font-family: Arial Black;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .boton button:hover {
+      background-color: black;
+      color: white;
+    }
+  </style>
+  <script type="text/javascript">
+    var imageUrls = [
+      "./img/cartas/gol_doble1min.png", "./img/cartas/porteria_libre.png", "./img/cartas/portero_manco.png", "./img/cartas/efecto_tortuga.png", "./img/cartas/hand_ball.png", "./img/cartas/iguala_messi.png", "./img/cartas/jugador_fantasma.png", "./img/cartas/penalti_invitado.png", "./img/cartas/tienes_suerte.png", "./img/cartas/tiki_taka.png"
+    ];
+
+    function getImageHtmlCode() {
+      var dataIndex = Math.floor(Math.random() * imageUrls.length);
+      img = imageUrls[dataIndex];
+      return img;
+    }
+  </script>
+</head>
+<body>
+  <div class="carta">
+    <h1>LA CARTA MAESTRA</h1>
+   
+   
+    <div class="cuadro">
+      <img id="cartaID" class="tarjeta-front" src="./img/cartas/carta_Kings_sorpresa.png" alt="Tarjeta">
+    </div>
+
+    <div class="boton">
+      <button id="boton"><span><a href="default.html">VOLVER</a></span></button> <!-- AGREGAR EL ARCHIVO HTML DE LA PÁGINA A DONDE RETORNA -->
+    </div>
+    
+    <script>
+      let tarjetaFront = document.querySelector('.tarjeta-front');
+      const cartaID = document.getElementById('cartaID');
+      let isFlipped = false;
+
+      cartaID.addEventListener('click', function() {
+        isFlipped = !isFlipped;
+
+        if (isFlipped) {
+        tarjetaFront.style.animation = 'half 0.5s linear';
+        tarjetaFront.style.transform = 'rotateY(360deg)';
+        tarjetaFront.src = getImageHtmlCode();
+        } else {
+        tarjetaFront.style.animation = 'animate 1.5s linear infinite';
+        tarjetaFront.style.transform = 'rotateY(0deg)';
+        tarjetaFront.src = "./img/cartas/carta_Kings_sorpresa.png";
+        }
+        });
+    </script>
+  </div>
+</body>
+</html>
