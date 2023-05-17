@@ -17,7 +17,7 @@ function actualizarDiv(resultados) {
       <div class="card-body">
         <div class="d-flex justify-content-around align-items-center">
           <div class="equipo">
-            <p class="card-title text-center">${resultado.equipoLocal} - ${resultado.jugado}</p>
+            <p class="card-title text-center">${resultado.equipoLocal}</p>
           </div>
           <div class="resultado d-flex flex-column align-items-center ${golesLocal > golesVisitante ? 'ganador' : golesLocal < golesVisitante ? 'perdedor' : 'empate'}">
             ${golesLocal}
