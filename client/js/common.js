@@ -1,1 +1,1 @@
-const backend='cambiar en start.sh'
+const backend='http://localhost:8585';
