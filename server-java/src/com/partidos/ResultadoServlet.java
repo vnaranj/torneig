@@ -46,7 +46,7 @@ public class ResultadoServlet extends HttpServlet {
             Partido partido = gson.fromJson(request.getReader(), Partido.class);
 
             // Prepara la sentencia SQL para hacer el inseesrt
-            String sql = "UPDATE partidos SET equipo1_goles = ?, equipo2_goles = ? WHERE id = ?";
+            String sql = "UPDATE partidos SET equipo1_goles = ?, equipo2_goles = ?, jugado = 1 WHERE id = ?";
             stmt = conn.prepareStatement(sql);
             stmt.setInt(1, partido.getGolesLocal());
             stmt.setInt(2, partido.getGolesVisitante());

@@ -33,10 +33,26 @@ async function obtenerPuntuaciones() {
         }
       } 
     });
-    const listaEquipos = Object.values(equipos).sort((a, b) => b.puntuacion - a.puntuacion);
+
+    const listaEquipos = Object.values(equipos).sort((a, b) => {
+      if (b.puntuacion - a.puntuacion !== 0) {
+        return b.puntuacion - a.puntuacion;
+      } else if (a.nombre === "DAW 1") {
+        return -1;
+      } else if (b.nombre === "DAW 1") {
+        return 1;
+      } else {
+        return 0;
+    }
+});
+
+    console.log(listaEquipos);
+
     listaEquipos.forEach((equipo, index) => {
       equipo.posicion = index + 1;
     });
+
+
     return listaEquipos;
   } catch (error) {
     console.error(error);
