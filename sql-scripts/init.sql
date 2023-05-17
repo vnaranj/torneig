@@ -26,6 +26,8 @@ CREATE TABLE partidos (
     FOREIGN KEY (equipo2_id) REFERENCES equipos(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+ALTER TABLE `partidos` ADD `jugado` INT(1) NOT NULL DEFAULT '0' AFTER `hora`;
+
 -- Inserts de partidos
 
 -- Asignar a start_date  la fecha de inicio deseada

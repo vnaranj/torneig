@@ -1,5 +1,3 @@
-
-
 //div para poder meter el html dinámico
 const resultadosDiv = document.getElementById("resultados");
 
