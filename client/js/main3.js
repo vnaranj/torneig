@@ -72,9 +72,12 @@ async function crearListaPuntuaciones() {
               <div class="resultado d-flex flex-column align-items-center puntos">
                 ${equipo.posicion}
               </div>
-              <div class="equipo text-center">
-                <p class="card-title" style="font-size: 24px">${equipo.nombre}</p>
+              <div class="equipo">
+              <img width="50%" src="${equipo.nombre === 'DAW 1' ? 'img/Logos/DAW1.png' : equipo.nombre === 'ASIX 2' ? 'img/Logos/asix2.png'  :
+              equipo.nombre === 'DAW 2' ? 'img/Logos/logo-placeholder.png' : equipo.nombre === 'Profes' ? 'img/Logos/profes.png' :
+               equipo.nombre === 'Comodín' ? 'img/Logos/logo-placeholder.png' : equipo.nombre === 'ASIX 1' ? 'img/Logos/asix1.png' : ''}" alt="${equipo.nombre} logo">   
               </div>
+
               <div class="resultado d-flex flex-column align-items-center puntos">
                 ${equipo.puntuacion}
               </div>
