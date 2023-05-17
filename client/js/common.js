@@ -1,1 +1,1 @@
-const backend='https://vnaranj1-psychic-parakeet-gwj5qj9g6jp396rg-8585.preview.app.github.dev/'
+const backend='https://vnaranj-laughing-cod-wwvvqq4xpg7294w4-8585.preview.app.github.dev'

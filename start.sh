@@ -16,7 +16,7 @@ elif [ "$1" = "prod" ] || [ "$2" = "prod" ]; then
     backend_msg="$backend_msg\nDesplegado en producción"
     backend_msg="$backend_msg\nServidor de backend:  $backend_url"
 else
-    backend_url=https://vnaranj1-psychic-parakeet-gwj5qj9g6jp396rg-8585.preview.app.github.dev/
+    backend_url=https://vnaranj-laughing-cod-wwvvqq4xpg7294w4-8585.preview.app.github.dev
     backend_msg="$backend_msg\nUtilizando codespaces. Para otras opciones mira el archivo start.sh"
     backend_msg="$backend_msg\nServidor de backend:  $backend_url"
     backend_msg="$backend_msg\nSi este no es tu servidor de backend, cámbialo en el archivo start.sh"
