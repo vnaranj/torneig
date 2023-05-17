@@ -1,2 +1,3 @@
-torneig/client/js/common.js
-torneig/docker-compose.yml
+/client/js/common.js
+/docker-compose.yml
+/start.sh
